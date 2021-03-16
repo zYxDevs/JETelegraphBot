@@ -133,6 +133,22 @@ async def telegraphgif(client, message):
     finally:
         os.remove(download_location)
 
+@Jebot.on_message(filters.text)
+async def telegraphtext(client, message):
+    msg = await message.reply_text("Uploading To Telegraph...")
+    download_location = await client.download_media(
+        message=message, file_name='root/jetg')
+    try:
+        response = upload_file(download_location)
+    except:
+        await msg.edit_text("Something went wrong!") 
+    else:
+        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
+            disable_web_page_preview=True,
+        )
+    finally:
+        os.remove(download_location)
+
 @Jebot.on_callback_query()
 async def button(bot, update):
       cb_data = update.data
