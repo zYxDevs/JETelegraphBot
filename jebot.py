@@ -12,7 +12,7 @@ Jebot = Client(
    bot_token=Config.TG_BOT_TOKEN,
 )
 
-@Jebot.on_message(filters.photo)
+@Jebot.on_message(filters.photo & filters.video)
 async def telegraph(client, message): 
      if (
         (photo and photo.file_size <= 5242880)
@@ -28,8 +28,7 @@ async def telegraph(client, message):
                 ('.jpg', '.jpeg', '.png', '.gif', '.mp4'),
             )
             and document.file_size <= 5242880
-        )
-    ):
+        ):
         await message.reply(message, text='Upto 5mb file size only supported!')
         return
     download_location = await client.download_media(
