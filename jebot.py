@@ -86,14 +86,14 @@ async def about(client, message):
             parse_mode="html")
 
 @Jebot.on_message(filters.photo)
-async def telegraph(client, message):
+async def telegraphphoto(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
         message=message, file_name='root/jetg')
     try:
         response = upload_file(download_location)
     except:
-        await msg.edit_text("Photo size is too large, Upto 5mb file size only supported!") 
+        await msg.edit_text("Photo size should be less than 5mb!") 
     else:
         await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
             disable_web_page_preview=True,
@@ -102,14 +102,30 @@ async def telegraph(client, message):
         os.remove(download_location)
 
 @Jebot.on_message(filters.video)
-async def telegraph(client, message):
+async def telegraphvid(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
         message=message, file_name='root/jetg')
     try:
         response = upload_file(download_location)
     except:
-        await msg.edit_text("Video size is too large, Upto 5mb file size only supported!") 
+        await msg.edit_text("Video size should be less than 5mb!") 
+    else:
+        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
+            disable_web_page_preview=True,
+        )
+    finally:
+        os.remove(download_location)
+
+@Jebot.on_message(filters.animation)
+async def telegraphgif(client, message):
+    msg = await message.reply_text("Uploading To Telegraph...")
+    download_location = await client.download_media(
+        message=message, file_name='root/jetg')
+    try:
+        response = upload_file(download_location)
+    except:
+        await msg.edit_text("Gif size should be less than 5mb!") 
     else:
         await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
             disable_web_page_preview=True,
