@@ -28,7 +28,7 @@ async def telegraph(client, message):
                 ('.jpg', '.jpeg', '.png', '.gif', '.mp4'),
             )
             and document.file_size <= 5242880
-        ):
+        )
         await message.reply(message, text='Upto 5mb file size only supported!')
         return
     download_location = await client.download_media(
