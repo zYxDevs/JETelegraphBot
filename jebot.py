@@ -15,7 +15,7 @@ Jebot = Client(
 @Jebot.on_message(filters.photo & filters.video)
 async def telegraph(client, message): 
     download_location = await client.download_media(
-        message=message.reply_text, file_name='root/jetg',
+        message=message, file_name='root/jetg',
     )
     try:
         response = upload_file(download_location)
