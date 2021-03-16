@@ -85,7 +85,23 @@ async def about(client, message):
             disable_web_page_preview=True,        
             parse_mode="html")
 
-@Jebot.on_message(filters.photo & filters.video)
+@Jebot.on_message(filters.photo)
+async def telegraph(client, message):
+    msg = await message.reply_text("Uploading To Telegraph...")
+    download_location = await client.download_media(
+        message=message, file_name='root/jetg')
+    try:
+        response = upload_file(download_location)
+    except:
+        await msg.edit_text("Upto 5mb file size only supported!") 
+    else:
+        await msg.edit_text(f'**Uploaded To Telegraph 🤗\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
+            disable_web_page_preview=True,
+        )
+    finally:
+        os.remove(download_location)
+
+@Jebot.on_message(filters.video)
 async def telegraph(client, message):
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
