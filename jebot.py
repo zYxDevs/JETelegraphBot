@@ -12,19 +12,17 @@ Jebot = Client(
    bot_token=Config.TG_BOT_TOKEN,
 )
 
-@Jebot.on_message(filters.photo & filters.video)
+@Jebot.on_message(filters.photo)
 async def telegraph(client, message): 
+    msg = await message.reply_text("Uploading to telegraph...")
     download_location = await client.download_media(
-        message=message, file_name='root/jetg',
-    )
+        message=message, file_name='root/jetg')
     try:
         response = upload_file(download_location)
     except Exception as document:
         await message.reply(message, text=document)
     else:
-        await message.reply(
-            message,
-            text=f'**Link: https://telegra.ph{response[0]}**',
+        await msg.edit_text(f'**Link: https://telegra.ph{response[0]}**',
             disable_web_page_preview=True,
         )
     finally:
