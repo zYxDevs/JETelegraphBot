@@ -1,6 +1,6 @@
 import os
 import logging
-from pyrogram import filters
+from pyrogram import Client, filters
 from telegraph import upload_file
 from config import Config
 
