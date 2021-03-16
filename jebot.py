@@ -14,25 +14,8 @@ Jebot = Client(
 
 @Jebot.on_message(filters.photo & filters.video)
 async def telegraph(client, message): 
-     if (
-        (photo and photo.file_size <= 5242880)
-        or (animation and animation.file_size <= 5242880)
-        or (
-            video
-            and video.file_name.endswith('.mp4')
-            and video.file_size <= 5242880
-        )
-        or (
-            document
-            and document.file_name.endswith(
-                ('.jpg', '.jpeg', '.png', '.gif', '.mp4'),
-            )
-            and document.file_size <= 5242880
-        )
-        await message.reply(message, text='Upto 5mb file size only supported!')
-        return
     download_location = await client.download_media(
-        message=message.reply_to_message, file_name='root/nana/',
+        message=message.reply_text, file_name='root/jetg',
     )
     try:
         response = upload_file(download_location)
