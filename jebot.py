@@ -95,7 +95,7 @@ async def telegraph(client, message):
     except:
         await msg.edit_text("Upto 5mb file size only supported!") 
     else:
-        await msg.edit_text(f'**Uploaded To Telegraph 🤗\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
+        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
             disable_web_page_preview=True,
         )
     finally:
@@ -111,7 +111,7 @@ async def telegraph(client, message):
     except:
         await msg.edit_text("Upto 5mb file size only supported!") 
     else:
-        await msg.edit_text(f'**Uploaded To Telegraph 🤗\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
+        await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
             disable_web_page_preview=True,
         )
     finally:
