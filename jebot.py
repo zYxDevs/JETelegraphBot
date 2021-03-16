@@ -93,7 +93,7 @@ async def telegraph(client, message):
     try:
         response = upload_file(download_location)
     except:
-        await msg.edit_text("Upto 5mb file size only supported!") 
+        await msg.edit_text("Photo size is too large, Upto 5mb file size only supported!") 
     else:
         await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
             disable_web_page_preview=True,
@@ -109,7 +109,7 @@ async def telegraph(client, message):
     try:
         response = upload_file(download_location)
     except:
-        await msg.edit_text("Upto 5mb file size only supported!") 
+        await msg.edit_text("Video size is too large, Upto 5mb file size only supported!") 
     else:
         await msg.edit_text(f'**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\n~ @Infinity_BOTs**',
             disable_web_page_preview=True,
