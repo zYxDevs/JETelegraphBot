@@ -86,7 +86,39 @@ async def about(client, message):
             parse_mode="html")
 
 @Jebot.on_message(filters.photo)
-async def telegraphphoto(client, message):
+async def telegraphphoto(c: client, message: Message):
+    if Config.UPDATES_CHANNEL is not None:
+        try:
+            user = await c.get_chat_member(Config.UPDATES_CHANNEL, message.chat.id)
+            if user.status == "kicked":
+                await c.send_message(
+                    chat_id=message.chat.id,
+                    text="Sorry, You are Banned to use me. Contact my [Support Group](https://t.me/InfinityBots_Support).",
+                    parse_mode="markdown",
+                    disable_web_page_preview=True
+                )
+                return
+        except UserNotParticipant:
+            await c.send_message(
+                chat_id=message.chat.id,
+                text="**Please Join My Updates Channel to use me 😉**",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton("Join Updates Channel", url=f"https://t.me/{Config.UPDATES_CHANNEL}")
+                        ]
+                    ]
+                ),
+                parse_mode="markdown"
+            )
+            return
+        except Exception:
+            await c.send_message(
+                chat_id=message.chat.id,
+                text="Something went Wrong. Contact my [Support Group](https://t.me/InfinityBots_Support).",
+                parse_mode="markdown",
+                disable_web_page_preview=True)
+            return
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
         message=message, file_name='root/jetg')
@@ -102,7 +134,39 @@ async def telegraphphoto(client, message):
         os.remove(download_location)
 
 @Jebot.on_message(filters.video)
-async def telegraphvid(client, message):
+async def telegraphvid(c: client, message: Message):
+    if Config.UPDATES_CHANNEL is not None:
+        try:
+            user = await c.get_chat_member(Config.UPDATES_CHANNEL, message.chat.id)
+            if user.status == "kicked":
+                await c.send_message(
+                    chat_id=message.chat.id,
+                    text="Sorry, You are Banned to use me. Contact my [Support Group](https://t.me/InfinityBots_Support).",
+                    parse_mode="markdown",
+                    disable_web_page_preview=True
+                )
+                return
+        except UserNotParticipant:
+            await c.send_message(
+                chat_id=message.chat.id,
+                text="**Please Join My Updates Channel to use me 😉**",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton("Join Updates Channel", url=f"https://t.me/{Config.UPDATES_CHANNEL}")
+                        ]
+                    ]
+                ),
+                parse_mode="markdown"
+            )
+            return
+        except Exception:
+            await c.send_message(
+                chat_id=message.chat.id,
+                text="Something went Wrong. Contact my [Support Group](https://t.me/InfinityBots_Support).",
+                parse_mode="markdown",
+                disable_web_page_preview=True)
+            return
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
         message=message, file_name='root/jetg')
@@ -118,7 +182,39 @@ async def telegraphvid(client, message):
         os.remove(download_location)
 
 @Jebot.on_message(filters.animation)
-async def telegraphgif(client, message):
+async def telegraphgif(c: client, message: Message):
+    if Config.UPDATES_CHANNEL is not None:
+        try:
+            user = await c.get_chat_member(Config.UPDATES_CHANNEL, message.chat.id)
+            if user.status == "kicked":
+                await c.send_message(
+                    chat_id=message.chat.id,
+                    text="Sorry, You are Banned to use me. Contact my [Support Group](https://t.me/InfinityBots_Support).",
+                    parse_mode="markdown",
+                    disable_web_page_preview=True
+                )
+                return
+        except UserNotParticipant:
+            await c.send_message(
+                chat_id=message.chat.id,
+                text="**Please Join My Updates Channel to use me 😉**",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton("Join Updates Channel", url=f"https://t.me/{Config.UPDATES_CHANNEL}")
+                        ]
+                    ]
+                ),
+                parse_mode="markdown"
+            )
+            return
+        except Exception:
+            await c.send_message(
+                chat_id=message.chat.id,
+                text="Something went Wrong. Contact my [Support Group](https://t.me/InfinityBots_Support).",
+                parse_mode="markdown",
+                disable_web_page_preview=True)
+            return
     msg = await message.reply_text("Uploading To Telegraph...")
     download_location = await client.download_media(
         message=message, file_name='root/jetg')
