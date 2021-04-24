@@ -86,7 +86,7 @@ async def about(client, message):
             parse_mode="html")
 
 @Jebot.on_message(filters.photo)
-async def telegraphphoto(c: client, message: Message):
+async def telegraphphoto(c: Client, message: Message):
     if Config.UPDATES_CHANNEL is not None:
         try:
             user = await c.get_chat_member(Config.UPDATES_CHANNEL, message.chat.id)
@@ -120,7 +120,7 @@ async def telegraphphoto(c: client, message: Message):
                 disable_web_page_preview=True)
             return
     msg = await message.reply_text("Uploading To Telegraph...")
-    download_location = await client.download_media(
+    download_location = await c.download_media(
         message=message, file_name='root/jetg')
     try:
         response = upload_file(download_location)
@@ -134,7 +134,7 @@ async def telegraphphoto(c: client, message: Message):
         os.remove(download_location)
 
 @Jebot.on_message(filters.video)
-async def telegraphvid(c: client, message: Message):
+async def telegraphvid(c: Client, message: Message):
     if Config.UPDATES_CHANNEL is not None:
         try:
             user = await c.get_chat_member(Config.UPDATES_CHANNEL, message.chat.id)
@@ -168,7 +168,7 @@ async def telegraphvid(c: client, message: Message):
                 disable_web_page_preview=True)
             return
     msg = await message.reply_text("Uploading To Telegraph...")
-    download_location = await client.download_media(
+    download_location = await c.download_media(
         message=message, file_name='root/jetg')
     try:
         response = upload_file(download_location)
@@ -182,7 +182,7 @@ async def telegraphvid(c: client, message: Message):
         os.remove(download_location)
 
 @Jebot.on_message(filters.animation)
-async def telegraphgif(c: client, message: Message):
+async def telegraphgif(c: Client, message: Message):
     if Config.UPDATES_CHANNEL is not None:
         try:
             user = await c.get_chat_member(Config.UPDATES_CHANNEL, message.chat.id)
@@ -216,7 +216,7 @@ async def telegraphgif(c: client, message: Message):
                 disable_web_page_preview=True)
             return
     msg = await message.reply_text("Uploading To Telegraph...")
-    download_location = await client.download_media(
+    download_location = await c.download_media(
         message=message, file_name='root/jetg')
     try:
         response = upload_file(download_location)
