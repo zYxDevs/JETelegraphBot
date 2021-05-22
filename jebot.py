@@ -13,14 +13,14 @@ Jebot = Client(
    bot_token=Config.TG_BOT_TOKEN,
 )
 
-@Jebot.on_message(filters.command("start"))
+@Jebot.on_message(filters.command("start") & filters.private)
 async def start(client, message):
    if message.chat.type == 'private':
        await Jebot.send_message(
                chat_id=message.chat.id,
                text="""<b>Hey There, I'm Telegraph Bot
 
-I can upload photos or videos to telegraph. Made by @ImJanindu 🇱🇰
+I can upload photos or videos to telegraph. Made by @JEBotZ.
 
 Hit help button to find out more about how to use me</b>""",   
                             reply_markup=InlineKeyboardMarkup(
@@ -37,7 +37,7 @@ Hit help button to find out more about how to use me</b>""",
             disable_web_page_preview=True,        
             parse_mode="html")
 
-@Jebot.on_message(filters.command("help"))
+@Jebot.on_message(filters.command("help") & filters.private)
 async def help(client, message):
     if message.chat.type == 'private':   
         await Jebot.send_message(
@@ -46,7 +46,7 @@ async def help(client, message):
 
 Just send a photo or video less than 5mb file size, I'll upload it to telegraph.
 
-~ @Infinity_BOTs</b>""",
+@JEBotZ</b>""",
         reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
@@ -61,7 +61,7 @@ Just send a photo or video less than 5mb file size, I'll upload it to telegraph.
             disable_web_page_preview=True,        
             parse_mode="html")
 
-@Jebot.on_message(filters.command("about"))
+@Jebot.on_message(filters.command("about") & filters.private)
 async def about(client, message):
     if message.chat.type == 'private':   
         await Jebot.send_message(
@@ -88,7 +88,7 @@ async def about(client, message):
 
 
 
-@Jebot.on_message(filters.video & filters.animation & filters.photo)
+@Jebot.on_message(filters.video & filters.animation & filters.photo & filters.private)
 async def telegraphvid(c: Client, message: Message):
     if Config.UPDATES_CHANNEL is not None:
         try:
