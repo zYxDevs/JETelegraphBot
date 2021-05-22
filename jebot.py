@@ -132,7 +132,7 @@ async def telegraphvid(c: Client, message: Message):
         sed = InlineKeyboardMarkup(
                     [[InlineKeyboardButton("Telegraph Link", url=f"https://telegra.ph{response[0]}")]])
          
-        await msg.edit('**Uploaded To <a href=f"https://telegra.ph{response[0]}">Telegraph</a>\n\nJoin @JEBotZ**',
+        await msg.edit(f'**Uploaded To [Telegraph](https://telegra.ph{response[0]})\n\nJoin @JEBotZ**',
             disable_web_page_preview=False,
             reply_markup=sed)
     finally:
@@ -183,7 +183,7 @@ async def telegraphvid(c: Client, message: Message):
         sed = InlineKeyboardMarkup(
                     [[InlineKeyboardButton("Telegraph Link", url=f"https://telegra.ph{response[0]}")]])
          
-        await msg.edit('**Uploaded To <a href=f"https://telegra.ph{response[0]}">Telegraph</a>\n\nJoin @JEBotZ**',
+        await msg.edit('**Uploaded To [Telegraph](https://telegra.ph{response[0]})\n\nJoin @JEBotZ**',
             disable_web_page_preview=False,
             reply_markup=sed)
     finally:
@@ -234,7 +234,7 @@ async def telegraphvid(c: Client, message: Message):
         sed = InlineKeyboardMarkup(
                     [[InlineKeyboardButton("Telegraph Link", url=f"https://telegra.ph{response[0]}")]])
          
-        await msg.edit('**Uploaded To <a href=f"https://telegra.ph{response[0]}">Telegraph</a>\n\nJoin @JEBotZ**',
+        await msg.edit('**Uploaded To [Telegraph](https://telegra.ph{response[0]})\n\nJoin @JEBotZ**',
             disable_web_page_preview=False,
             reply_markup=sed)
     finally:
